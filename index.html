@@ -7,21 +7,25 @@
     <script type="text/javascript" src="javascript.js"></script>
   </head>
   <body>
-    <h1>Ćirilično latinični transkribator™ v0.1.31</h1>
-    <p>Upiši tekst:</p>
-    <textarea id="cyrillic-input"></textarea>
-    <label for="language-select">Izaberi jezik:</label>
-    <select id="language-select">
-      <option value="russian">ruski</option>
-      <option value="ukrainian">ukrajinski</option>
-      <option value="belarussian">bjeloruski</option>
-      <option value="rusyn">rusinski</option>
-    </select>
-    <button onclick="convert()">Transkribiraj</button>
-    <button onclick="clearFields()">Izbriši</button>
-    <p>Transkribirani tekst:</p>
+    <h1>Ćirilično latinični transkribator™ v0.1.64</h1>
+    <textarea id="cyrillic-input" placeholder="Upiši izvorni tekst"></textarea>
+    <div id="options-wrapper">
+      <div id="language-selector">
+        <label for="language-select">Jezik:</label>
+        <select id="language-select">
+          <option value="russian">ruski</option>
+          <option value="ukrainian">ukrajinski</option>
+          <option value="belarussian">bjeloruski</option>
+          <option value="rusyn">rusinski</option>
+        </select>
+      </div>
+      <div id="action-buttons">
+        <button onclick="convert()">Transkribiraj</button>
+        <button class="destructive" onclick="clearFields()">Izbriši</button>
+      </div>
+    </div>
     <div id="output-container">
-      <textarea id="latin-output" readonly></textarea>
+      <textarea id="latin-output" placeholder="Transkribirani tekst" readonly></textarea>
       <button id="copy-button" onclick="copyToClipboard()">
         <svg id="copy-button-svg" stroke="black" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
       </button>

@@ -1,63 +1,78 @@
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    max-width: 50em;
-    padding: 1.5em;
-  }
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  max-width: 45rem;
+  padding: 1.5em;
+  background-color: #F6F6F6;
+  margin: auto;
+}
 
-  textarea {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;	
-    width: 100%;
-    height: 200px;
-    margin-bottom: 10px;
-    padding: 5px;
-    font-size: 16px;
-    line-height: 1.5;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
+textarea {
+  box-sizing: border-box;
+  resize: none;
+  width: 100%;
+  height: 15rem;
+  margin-bottom: 30px;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+  border-color: transparent;
+  border-radius: 5px;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
 
-  button {
-    background-color: #1e6ed0;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
+button {
+  background-color: #1e6ed0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-  button:hover {
-    background-color: #2486ff;
-  }
+button.destructive {
+  background-color: rgb(100, 100, 100);
+}
 
-  select {
-    padding: 5px;
-    font-size: 16px;
-    border-radius: 5px;
-  }
+button.destructive:hover {
+  background-color: rgb(122, 122, 122);
+  transition: 0.2s;
+}
 
-  #output-container {
-    position: relative;
-  }
+button:hover {
+  background-color: #2486ff;
+  transition: 0.2s;
+}
 
-  #latin-output {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    margin-bottom: 10px;
-    position: relative;
-  }
+select {
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+}
 
-  #copy-button {
-    background-color: rgb(230, 230, 230);
-    position: absolute;
-    top: 8px;
-    right: 8px;
-  }
+#options-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: 25px;
+}
 
-  #copy-button:hover {
-    background-color: rgb(170, 170, 170);
-    transition: 0.3s;
-  }
+#language-selector {
+  flex: auto;
+}
+
+#output-container {
+  position: relative;
+}
+
+#copy-button {
+  background-color: rgb(220, 220, 220);
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+#copy-button:hover {
+  background-color: #cae2ff;
+  transition: 0.5s;
+}
