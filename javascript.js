@@ -112,3 +112,8 @@ function convert() {
     document.getElementById("latin-output").value = "";
   }
   
+  function copyToClipboard() {
+    const textarea = document.getElementById("latin-output");
+    textarea.select();
+    document.execCommand("copy");
+  }

@@ -3,6 +3,7 @@ body {
     max-width: 50em;
     padding: 1.5em;
   }
+
   textarea {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -16,6 +17,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
   }
+
   button {
     background-color: #1e6ed0;
     color: white;
@@ -25,11 +27,37 @@ body {
     font-size: 16px;
     cursor: pointer;
   }
+
   button:hover {
     background-color: #2486ff;
   }
+
   select {
     padding: 5px;
     font-size: 16px;
     border-radius: 5px;
+  }
+
+  #output-container {
+    position: relative;
+  }
+
+  #latin-output {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  #copy-button {
+    background-color: rgb(230, 230, 230);
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+
+  #copy-button:hover {
+    background-color: rgb(170, 170, 170);
+    transition: 0.3s;
   }
