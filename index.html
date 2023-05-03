@@ -3,22 +3,22 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ćirilično latinični transkribator</title>
+    <title>Slavenski transkribator</title>
     <link rel="stylesheet" href="styles.css">
     <script type="text/javascript" src="javascript.js"></script>
 </head>
 
 <body>
-    <h1>Ćirilično latinični transkribator™ v0.1.84</h1>
+    <h1>Slavenski transkribator™</h1>
     <div id="bulgarian-notice" class="bulgarian-notice" style="display:none;">
         <p class="alert-title"><span class="docon docon-status-warning-outline" aria-hidden="true"></span> Upozorenje</p>
         <p>Bugarsko "ъ" može se izustaviti ili transkribirati kao "a". Npr. Т<strong>ъ</strong>рговище > Trgovište, ali je К<strong>ъ</strong>нчев > K<strong>a</strong>nčev. Po automatizmu nije moguće prepoznati kad treba jedno, a kad drugo.</p>
     </div>
-    <textarea id="cyrillic-input" placeholder="Upiši izvorni tekst"></textarea>
+    <textarea id="cyrillic-input" placeholder="Upiši izvorni tekst" autocomplete="off"></textarea>
     <div id="options-wrapper">
         <div id="language-selector">
             <label for="language-select">Jezik:</label>
-            <select id="language-select" onchange="handleLanguageChange()">
+            <select id="language-select" onchange="handleLanguageChange()" autocomplete="off">
                 <option value="belarussian">bjeloruski</option>
                 <option value="bulgarian">bugarski</option>
                 <option value="macedonian">makedonski</option>
@@ -33,13 +33,16 @@
         </div>
     </div>
     <div id="output-container">
-        <textarea id="latin-output" placeholder="Transkribirani tekst" readonly></textarea>
+        <textarea id="latin-output" placeholder="Transkribirani tekst" readonly autocomplete="off"></textarea>
         <button id="copy-button" onclick="copyToClipboard()">
             <svg id="copy-button-svg" stroke="black" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                 <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
                 <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
             </svg>
         </button>
+    </div>
+    <div class="bottom-text">
+        <p>v0.1.88</p>
     </div>
 </body>
 
