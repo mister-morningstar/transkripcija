@@ -1,6 +1,8 @@
 function convert() {
-    const cyrillicText = document.getElementById("cyrillic-input").value;
-    const cyrillicToLatinMap = {
+  const cyrillicText = document.getElementById("cyrillic-input").value;
+  const language = document.getElementById("language-select").value;
+
+  const cyrillicToLatinMap = {
       // Special cases
       "ль": "lj",
       "ля": "lja",
@@ -18,7 +20,7 @@ function convert() {
       "В": "V",
       "Г": "G",
       "Д": "D",
-      "Е": "E",
+      "Е": (language === "russian" || language === "belarussian") ? "Je" : "E",
       "Ё": "Jo",
       "Є": "Je",
       "Ж": "Ž",
@@ -88,36 +90,36 @@ function convert() {
       "э": "e",
       "ю": "ju",
       "я": "ja",
-    };
-    let latinText = "";
-    for (let i = 0; i < cyrillicText.length; i++) {
+  };
+  let latinText = "";
+  for (let i = 0; i < cyrillicText.length; i++) {
       if (cyrillicToLatinMap[cyrillicText.substr(i, 2)] !== undefined) {
-        if (cyrillicToLatinMap[cyrillicText.substr(i, 2)] !== "") {
-          latinText += cyrillicToLatinMap[cyrillicText.substr(i, 2)];
-          i++;
-        }
+          if (cyrillicToLatinMap[cyrillicText.substr(i, 2)] !== "") {
+              latinText += cyrillicToLatinMap[cyrillicText.substr(i, 2)];
+              i++;
+          }
       } else if (cyrillicToLatinMap[cyrillicText[i]] !== undefined) {
-        if (cyrillicToLatinMap[cyrillicText[i]] !== "") {
-          latinText += cyrillicToLatinMap[cyrillicText[i]];
-        }
+          if (cyrillicToLatinMap[cyrillicText[i]] !== "") {
+              latinText += cyrillicToLatinMap[cyrillicText[i]];
+          }
       } else {
-        latinText += cyrillicText[i];
+          latinText += cyrillicText[i];
       }
-    }    
-    // Check for consecutive vowels and insert "j"
-    latinText = latinText.replace(/[aeiou]{2}/gi, (match) => {
+  }
+  // Check for consecutive vowels and insert "j"
+  latinText = latinText.replace(/[aeiou]{2}/gi, (match) => {
       return match[0] + "j" + match[1];
-    });
-    document.getElementById("latin-output").value = latinText;
+  });
+  document.getElementById("latin-output").value = latinText;
 }
-  
-  function clearFields() {
-    document.getElementById("cyrillic-input").value = "";
-    document.getElementById("latin-output").value = "";
-  }
-  
-  function copyToClipboard() {
-    const textarea = document.getElementById("latin-output");
-    textarea.select();
-    document.execCommand("copy");
-  }
+
+function clearFields() {
+  document.getElementById("cyrillic-input").value = "";
+  document.getElementById("latin-output").value = "";
+}
+
+function copyToClipboard() {
+  const textarea = document.getElementById("latin-output");
+  textarea.select();
+  document.execCommand("copy");
+}
