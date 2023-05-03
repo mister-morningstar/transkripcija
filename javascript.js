@@ -3,22 +3,41 @@ function convert() {
   const language = document.getElementById("language-select").value;
 
   const cyrillicToLatinMap = {
-      // Special cases
+      // Special cases - lowercase
       "ль": "lj",
       "ля": "lja",
       "лю": "lju",
+      "лё": "ljo",
       "нь": "nj",
       "ня": "nja",
       "ню": "nju",
-      "лё": "ljo",
       "нё": "njo",
       // Special cases - uppercase
-      "Ж": "ПЛЕЈСХОЛДЕР",
+      "Ль": "Lj",
+      "Ля": "Lja",
+      "Лю": "Lju",
+      "Лё": "Ljo",
+      "Нь": "Nj",
+      "Ня": "Nja",
+      "Ню": "Nju",
+      "Нё": "Njo",
+      // Special cases - I doubt these can be uppercase, ever
+      "ьа": "ja",
+      "ье": "je",
+      "ьи": "ji",
+      "ьо": "jo",
+      "ьу": "ju",
+      "ъа": "ja",
+      "ъе": "je",
+      "ъи": "ji",
+      "ъо": "jo",
+      "ъу": "ju",
       // Uppercase
       "А": "A",
       "Б": "B",
       "В": "V",
-      "Г": "G",
+      "Г": (language === "rusyn") ? "H" : "G",
+      "Ґ": "G",
       "Д": "D",
       "Е": (language === "russian" || language === "belarussian") ? "Je" : "E",
       "Ё": "Jo",
@@ -45,18 +64,22 @@ function convert() {
       "Ц": "C",
       "Ч": "Č",
       "Ш": "Š",
-      "Щ": "Šč",
+      "Щ": (language === "bulgarian") ? "Št" : "Šč",
       "Ъ": "",
       "Ы": "I",
       "Ь": "",
       "Э": "E",
       "Ю": "Ju",
       "Я": "Ja",
+      "Ѕ": "Dz",
+      "Ќ": "Ć",
+      "Ѓ": "Đ",
       // Lowercase
       "а": "a",
       "б": "b",
       "в": "v",
-      "г": "g",
+      "г": (language === "rusyn") ? "h" : "g",
+      "ґ": "g",
       "д": "d",
       "е": "e",
       "ё": "jo",
@@ -83,13 +106,16 @@ function convert() {
       "ц": "c",
       "ч": "č",
       "ш": "š",
-      "щ": "šč",
+      "щ": (language === "bulgarian") ? "št" : "šč",
       "ъ": "",
       "ы": "i",
       "ь": "",
       "э": "e",
       "ю": "ju",
       "я": "ja",
+      "ѕ": "dz",
+      "ќ": "ć",
+      "ѓ": "đ",
   };
   let latinText = "";
   for (let i = 0; i < cyrillicText.length; i++) {
@@ -113,13 +139,27 @@ function convert() {
   document.getElementById("latin-output").value = latinText;
 }
 
+// Enables the clear button to clear both fields
 function clearFields() {
   document.getElementById("cyrillic-input").value = "";
   document.getElementById("latin-output").value = "";
 }
 
+// Enables the copy button to copy the latin-out to the clipboard
 function copyToClipboard() {
   const textarea = document.getElementById("latin-output");
   textarea.select();
   document.execCommand("copy");
+}
+
+// Displays a banner if Bulgarian is selected
+function handleLanguageChange() {
+  const language = document.getElementById("language-select").value;
+  const bulgarianNotice = document.getElementById("bulgarian-notice");
+
+  if (language === "bulgarian") {
+      bulgarianNotice.style.display = "block";
+  } else {
+      bulgarianNotice.style.display = "none";
+  }
 }

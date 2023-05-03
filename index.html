@@ -9,16 +9,22 @@
 </head>
 
 <body>
-    <h1>Ćirilično latinični transkribator™ v0.1.66</h1>
+    <h1>Ćirilično latinični transkribator™ v0.1.84</h1>
+    <div id="bulgarian-notice" class="bulgarian-notice" style="display:none;">
+        <p class="alert-title"><span class="docon docon-status-warning-outline" aria-hidden="true"></span> Upozorenje</p>
+        <p>Bugarsko "ъ" može se izustaviti ili transkribirati kao "a". Npr. Т<strong>ъ</strong>рговище > Trgovište, ali je К<strong>ъ</strong>нчев > K<strong>a</strong>nčev. Po automatizmu nije moguće prepoznati kad treba jedno, a kad drugo.</p>
+    </div>
     <textarea id="cyrillic-input" placeholder="Upiši izvorni tekst"></textarea>
     <div id="options-wrapper">
         <div id="language-selector">
             <label for="language-select">Jezik:</label>
-            <select id="language-select">
+            <select id="language-select" onchange="handleLanguageChange()">
+                <option value="belarussian">bjeloruski</option>
+                <option value="bulgarian">bugarski</option>
+                <option value="macedonian">makedonski</option>
+                <option value="rusyn">rusinski</option>
                 <option value="russian">ruski</option>
                 <option value="ukrainian">ukrajinski</option>
-                <option value="belarussian">bjeloruski</option>
-                <option value="rusyn">rusinski</option>
             </select>
         </div>
         <div id="action-buttons">

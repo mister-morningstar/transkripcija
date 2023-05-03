@@ -30,6 +30,19 @@ button {
   cursor: pointer;
 }
 
+div.bulgarian-notice {
+  background-color: #FDF3C8;
+  border-radius: .375rem;
+  padding: .255rem 1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.alert-title {
+  color: #5C4318;
+  font-weight: 700;
+}
+
 button.destructive {
   background-color: rgb(100, 100, 100);
 }
