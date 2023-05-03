@@ -104,8 +104,12 @@ function convert() {
         latinText += cyrillicText[i];
       }
     }    
+    // Check for consecutive vowels and insert "j"
+    latinText = latinText.replace(/[aeiou]{2}/gi, (match) => {
+      return match[0] + "j" + match[1];
+    });
     document.getElementById("latin-output").value = latinText;
-  }
+}
   
   function clearFields() {
     document.getElementById("cyrillic-input").value = "";
